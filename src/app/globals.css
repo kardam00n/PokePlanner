@@ -79,12 +79,7 @@
   --logo-gradient: linear-gradient(135deg, #111320 30%, #5b52e8);
 }
 
-/* ─── Smooth theme transitions ───────────────────────────────────────────────── */
-html {
-  transition:
-    background-color var(--transition-base),
-    color var(--transition-base);
-}
+
 
 /* ─── Base ───────────────────────────────────────────────────────────────────── */
 html { font-size: 16px; scroll-behavior: smooth; }
@@ -170,14 +165,11 @@ h3 { font-size: 1rem; font-weight: 600; }
   position: sticky;
   top: 0;
   z-index: 100;
-  background: var(--header-bg);
+  background-color: var(--header-bg);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 1px solid var(--header-border);
   padding: 0 1.5rem;
-  transition:
-    background var(--transition-base),
-    border-color var(--transition-base);
 }
 .header-inner {
   max-width: 1200px;
