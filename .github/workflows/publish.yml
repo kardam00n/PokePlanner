@@ -38,10 +38,20 @@ jobs:
             type=semver,pattern={{version}}
             type=raw,value=latest
 
+      # Skonfiguruj QEMU, służące do emulacji innych procesorów (np. ARM na maszynie AMD w GitHubie)
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      # Skonfiguruj Docker Buildx, zaawansowany silnik budujący, który pozwala na "multi-architecture builds"
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
+          # Tutaj definiujemy, że obraz ma się zbudować W OBU formatach na raz i złączyć w jeden manifest
+          platforms: linux/amd64,linux/arm64
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}

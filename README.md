@@ -13,7 +13,7 @@ A modern, fast web application built to help you compose your dream Pokémon tea
 
 The application is hosted globally on Vercel for instant load times (SSG architecture).
 
-👉 **[Link to hosted app will go here]**
+👉 **[PokemonTeamPicker](https://pokemonteampicker.vercel.app/)**
 
 ---
 
@@ -33,6 +33,44 @@ The application is hosted globally on Vercel for instant load times (SSG archite
 - **Styling**: `Vanilla CSS` (CSS Modules + Global variables)
 - **Data Source**: Data is pulled from the official [PokéAPI](https://pokeapi.co/).
 - **Architecture (SSG)**: To achieve instant load times and reduce external API dependency on client devices, the application uses **Static Site Generation**. During the build process (`prebuild`), a custom script connects to PokéAPI, downloading data for all species, their types, sprites, and the comprehensive type effectiveness chart. This data is bundled organically as local JSON data maps which are served seamlessly and statically to the clients.
+
+---
+
+## 🐳 Self-Hosting (Docker)
+
+You don't need to clone the repository or manually build the application from source. A production-ready Docker image is continuously published to the GitHub Container Registry (`ghcr.io`).
+
+### Supported Architectures
+The Docker image is built using a multi-architecture process, meaning it runs natively on both:
+- **`linux/amd64`** (Standard PCs, Desktop, Cloud VPS)
+- **`linux/arm64`** (Raspberry Pi, Apple Silicon, ARM Servers)
+
+### Quick Start with Docker Compose
+
+An example `docker-compose.yml` file is provided in this repository. You can simply copy this file to your machine or server.
+
+```yaml
+services:
+  pokemon-team-picker:
+    image: ghcr.io/kardam00n/pokemonteampicker:latest
+    container_name: pokemon-team-picker
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+```
+
+**Environment Variables:**
+- `NODE_ENV=production`: Ensures the Next.js framework runs in optimized production mode for best performance.
+
+### Running the container:
+1. Copy the code snippet above and save it anywhere as `docker-compose.yml`.
+2. Run the following command in the same directory:
+   ```bash
+   docker compose up -d
+   ```
+3. Open `http://localhost:3000` in your browser.
 
 ---
 
