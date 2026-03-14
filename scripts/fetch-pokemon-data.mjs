@@ -87,9 +87,9 @@ function shouldSkip(pokemonName) {
 
 /**
  * Build a human-readable displayName from the PokeAPI name.
- * e.g. "charizard-mega-x"  → "Charizard (Mega X)"
- *       "vulpix-alola"      → "Vulpix (Alolan)"
- *       "giratina-origin"   → "Giratina (Origin)"
+ * e.g. "charizard-mega-x"  → "Mega Charizard X"
+ *       "vulpix-alola"      → "Alolan Vulpix"
+ *       "giratina-origin"   → "Origin Giratina"
  */
 function buildDisplayName(pokemonName, isDefault) {
   if (isDefault) {
@@ -266,7 +266,11 @@ async function buildPokemonList() {
             .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
             .join(" ");
           const formPretty = prettyFormName(formSuffix);
-          displayName = `${basePretty} (${formPretty})`;
+          if (formPretty === "Mega X" || formPretty === "Mega Y" || formPretty === "Mega Z") {
+            displayName = `Mega ${basePretty} ${formPretty.slice(-1)}`;
+          } else {
+            displayName = `${formPretty} ${basePretty}`;
+          }
         }
 
         const sprite =
