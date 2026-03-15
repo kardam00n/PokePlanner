@@ -192,7 +192,14 @@ async function buildTypeChart() {
     10
   );
   for (const data of typeData) {
-    chart[data.name] = data.damage_relations.double_damage_to.map((t) => t.name);
+    chart[data.name] = {
+      double_damage_to: data.damage_relations.double_damage_to.map(t => t.name),
+      half_damage_to: data.damage_relations.half_damage_to.map(t => t.name),
+      no_damage_to: data.damage_relations.no_damage_to.map(t => t.name),
+      double_damage_from: data.damage_relations.double_damage_from.map(t => t.name),
+      half_damage_from: data.damage_relations.half_damage_from.map(t => t.name),
+      no_damage_from: data.damage_relations.no_damage_from.map(t => t.name),
+    };
   }
   return chart;
 }

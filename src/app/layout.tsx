@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import ThemeToggle from "@/components/ThemeToggle/ThemeToggle";
+import Navigation from "@/components/Navigation/Navigation";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Pokémon Team Picker",
@@ -38,12 +40,11 @@ export default function RootLayout({
         <div className="app-shell">
           <header className="app-header">
             <div className="header-inner">
-              <div className="logo">
+              <Link href="/" className="logo" style={{ textDecoration: 'none' }}>
                 <span className="logo-icon">⚡</span>
                 <span className="logo-text">Pokémon Team Picker</span>
-              </div>
-              <p className="logo-tagline">Build your team · Analyze coverage</p>
-              <ThemeToggle />
+              </Link>
+              <Navigation themeToggle={<ThemeToggle />} />
             </div>
           </header>
           <main className="app-main">{children}</main>
