@@ -1,0 +1,158 @@
+.navWrapper {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+/* ──────── Desktop View ──────── */
+.desktopNav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  border-left: 1px solid var(--border-glass);
+  padding-left: 1.5rem;
+  margin-left: 0.5rem;
+  flex: 1;
+}
+
+.desktopToggle {
+  margin-left: auto;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-base);
+}
+
+.link:hover {
+  color: var(--text-primary);
+  background: var(--bg-glass-hover);
+}
+
+.link.active {
+  color: var(--accent);
+  background: var(--accent-glow);
+  font-weight: 600;
+}
+
+/* ──────── Mobile Components (Hidden on Desktop) ──────── */
+.hamburger,
+.backdrop,
+.mobileDrawer {
+  display: none;
+}
+
+/* ──────── Mobile View ──────── */
+@media (max-width: 600px) {
+  .navWrapper {
+    margin-left: auto;
+    flex: 0;
+  }
+
+  /* Hide Desktop Items */
+  .desktopNav {
+    display: none;
+  }
+
+  /* Hamburger Button */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 200;
+  }
+
+  .hamburger span {
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-primary);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .openHamburger span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .openHamburger span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .openHamburger span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Dim Backdrop */
+  .backdrop {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 104;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-base);
+  }
+
+  .backdropOpen {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Side Drawer fixed to right */
+  .mobileDrawer {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100vh;
+    background: var(--bg-surface);
+    border-left: 1px solid var(--border-glass);
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+    z-index: 105;
+    transform: translateX(100%);
+    transition: transform var(--transition-base);
+    padding: 5rem 1.5rem 2rem 1.5rem;
+    /* Space for hamburger at top */
+  }
+
+  .drawerOpen {
+    transform: translateX(0);
+  }
+
+  .drawerLinks {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .drawerFooter {
+    width: 100%;
+    margin-top: auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-glass);
+    display: flex;
+    justify-content: center;
+  }
+
+  .drawerFooter [class*="toggle"] {
+    margin-left: initial;
+  }
+}

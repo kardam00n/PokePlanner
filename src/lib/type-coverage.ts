@@ -30,7 +30,7 @@ export function calculateCoverage(
 
   for (const pokemon of team) {
     for (const pokeType of pokemon.types) {
-      const effectiveAgainst = typeChart[pokeType] ?? [];
+      const effectiveAgainst = typeChart[pokeType]?.double_damage_to ?? [];
       for (const enemyType of effectiveAgainst) {
         const set = coverageMap.get(enemyType);
         if (set && !set.has(pokemon.id)) {

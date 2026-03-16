@@ -1,4 +1,4 @@
-# Pokémon Team Picker ⚡️
+# PokePlanner ⚡️
 
 A modern, fast web application built to help you compose your dream Pokémon team of up to 6 members and analyze their offensive type coverage against all 18 Pokémon types.
 
@@ -13,15 +13,15 @@ A modern, fast web application built to help you compose your dream Pokémon tea
 
 The application is hosted globally on Vercel for instant load times (SSG architecture).
 
-👉 **[PokemonTeamPicker](https://pokemonteampicker.vercel.app/)**
+👉 **[PokePlanner](https://poke-planner.vercel.app/)**
 
 ---
 
 ## ✨ Features
 
-- **Blazing Fast Search**: Autocompleting search bar querying a local, build-time generated dataset of **1288 Pokémon** (including base species, Mega Evolutions, Regional Forms, and other variations).
-- **Interactive Team Grid**: Assemble, review, and adjust a team consisting of up to 6 members.
-- **Offensive Type Coverage Analysis**: An interactive dashboard showing exactly which enemy typings your current team can hit for "Super Effective" (2x) damage, including visual indicators of which of your Pokémon acts as the counter.
+- **Blazing Fast Search**: Autocompleting search bar querying a local, build-time generated dataset of **over 1000 Pokémon** (including base species, Mega Evolutions, Regional Forms, and other variations).
+- **Interactive Team Builder**: Assemble, review, and adjust a team consisting of up to 6 members with integrated **Offensive Type Coverage Analysis**.
+- **Counter Analyzer**: A dedicated tool to analyze individual Pokémon's defensive weaknesses and resistances, helping you identify the best counters for any threat.
 - **Modern Glassmorphic UI**: Beautiful design tailored completely with vanilla CSS, focusing on dark aesthetics with responsive interactions and dynamic typing colors.
 
 ---
@@ -51,9 +51,9 @@ An example `docker-compose.yml` file is provided in this repository. You can sim
 
 ```yaml
 services:
-  pokemon-team-picker:
-    image: ghcr.io/kardam00n/pokemonteampicker:latest
-    container_name: pokemon-team-picker
+  poke-planner:
+    image: ghcr.io/kardam00n/poke-planner:latest
+    container_name: poke-planner
     ports:
       - "3000:3000"
     restart: unless-stopped

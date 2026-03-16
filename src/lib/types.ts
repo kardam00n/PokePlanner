@@ -12,7 +12,16 @@ export interface Pokemon {
   sprite: string | null;
 }
 
-export type TypeChart = Record<string, string[]>;
+export interface DamageRelations {
+  double_damage_to: string[];
+  half_damage_to: string[];
+  no_damage_to: string[];
+  double_damage_from: string[];
+  half_damage_from: string[];
+  no_damage_from: string[];
+}
+
+export type TypeChart = Record<string, DamageRelations>;
 
 export interface CoverageResult {
   /** enemy type being attacked */

@@ -1,7 +1,7 @@
 services:
-  pokemon-team-picker:
-    image: ghcr.io/kardam00n/pokemonteampicker:latest
-    container_name: pokemon-team-picker
+  poke-planner:
+    image: ghcr.io/kardam00n/poke-planner:latest
+    container_name: poke-planner
     ports:
       - "3000:3000"
     restart: unless-stopped
