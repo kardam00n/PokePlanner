@@ -314,7 +314,7 @@ async function buildPokemonList() {
 // ─── Main ─────────────────────────────────────────────────────────────────────
 
 async function main() {
-  console.log("🚀 Pokemon Team Picker – data fetch v2 (with forms)\n");
+  console.log("🚀 PokePlanner – data fetch v2 (with forms)\n");
 
   const [typeChart, pokemonList] = await Promise.all([
     buildTypeChart(),

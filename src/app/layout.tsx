@@ -5,7 +5,7 @@ import Navigation from "@/components/Navigation/Navigation";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Pokémon Team Picker",
+  title: "PokePlanner",
   description:
     "Build your dream Pokémon team and analyze offensive type coverage.",
   keywords: ["pokemon", "team builder", "type coverage", "pokedex"],
@@ -42,7 +42,7 @@ export default function RootLayout({
             <div className="header-inner">
               <Link href="/" className="logo" style={{ textDecoration: 'none' }}>
                 <span className="logo-icon">⚡</span>
-                <span className="logo-text">Pokémon Team Picker</span>
+                <span className="logo-text">PokePlanner</span>
               </Link>
               <Navigation themeToggle={<ThemeToggle />} />
             </div>

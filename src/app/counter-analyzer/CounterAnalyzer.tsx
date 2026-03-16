@@ -3,10 +3,10 @@
 import { useState, useMemo } from "react";
 import type { Pokemon, TypeChart } from "@/lib/types";
 import SearchBar from "@/components/SearchBar/SearchBar";
-import styles from "./TypeAnalyzer.module.css";
+import styles from "./CounterAnalyzer.module.css";
 import Image from "next/image";
 
-interface TypeAnalyzerProps {
+interface CounterAnalyzerProps {
   pokemonList: Pokemon[];
   typeChart: TypeChart;
 }
@@ -32,7 +32,7 @@ function calculateDefensiveMatchups(pokemonTypes: string[], typeChart: TypeChart
   return matchups;
 }
 
-export default function TypeAnalyzer({ pokemonList, typeChart }: TypeAnalyzerProps) {
+export default function CounterAnalyzer({ pokemonList, typeChart }: CounterAnalyzerProps) {
   const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
 
   const defensiveMatchups = useMemo(() => {
@@ -52,9 +52,9 @@ export default function TypeAnalyzer({ pokemonList, typeChart }: TypeAnalyzerPro
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <h1 className="animate-slide-up">Type Matchup Analyzer</h1>
+        <h1 className="animate-slide-up">Counter Analyzer</h1>
         <p className="animate-slide-up" style={{ animationDelay: "0.1s" }}>
-          Search for a Pokémon to view its defensive weaknesses and resistances.
+          Search for a Pokémon to analyze its potential counters.
         </p>
       </header>
 
@@ -70,10 +70,10 @@ export default function TypeAnalyzer({ pokemonList, typeChart }: TypeAnalyzerPro
         <div className={`${styles.results} animate-fade-in`}>
           <div className={styles.pokemonCard}>
             {selectedPokemon.sprite && (
-              <Image 
-                src={selectedPokemon.sprite} 
-                alt={selectedPokemon.displayName} 
-                width={80} height={80} 
+              <Image
+                src={selectedPokemon.sprite}
+                alt={selectedPokemon.displayName}
+                width={80} height={80}
                 className={styles.pkmSprite}
                 unoptimized
               />

@@ -34,10 +34,11 @@ export default function CoveragePanel({ coverage, teamSize }: CoveragePanelProps
   if (teamSize === 0) {
     return (
       <section className={styles.section}>
-        <h2 className={styles.title}>Type Coverage</h2>
+        <h2 className={styles.title}>Offensive Type Coverage</h2>
         <div className={styles.empty}>
           <span className={styles.emptyIcon}>🎯</span>
           <p>Add Pokémon to your team to see coverage analysis.</p>
+          <p>Warning: This is based only on the Pokémon's types.</p>
         </div>
       </section>
     );

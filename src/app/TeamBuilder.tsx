@@ -6,14 +6,14 @@ import { calculateCoverage } from "@/lib/type-coverage";
 import SearchBar from "@/components/SearchBar/SearchBar";
 import TeamGrid from "@/components/TeamGrid/TeamGrid";
 import CoveragePanel from "@/components/CoveragePanel/CoveragePanel";
-import styles from "./TeamPicker.module.css";
+import styles from "./TeamBuilder.module.css";
 
-interface TeamPickerProps {
+interface TeamBuilderProps {
   pokemonList: Pokemon[];
   typeChart: TypeChart;
 }
 
-export default function TeamPicker({ pokemonList, typeChart }: TeamPickerProps) {
+export default function TeamBuilder({ pokemonList, typeChart }: TeamBuilderProps) {
   const [team, setTeam] = useState<Pokemon[]>([]);
 
   const addPokemon = useCallback((pokemon: Pokemon) => {

@@ -36,10 +36,10 @@ export default function Navigation({ themeToggle }: NavigationProps) {
           Team Builder
         </Link>
         <Link 
-          href="/type-analyzer" 
-          className={`${styles.link} ${pathname === "/type-analyzer" ? styles.active : ""}`}
+          href="/counter-analyzer" 
+          className={`${styles.link} ${pathname === "/counter-analyzer" ? styles.active : ""}`}
         >
-          Type Analyzer
+          Counter Analyzer
         </Link>
         <div className={styles.desktopToggle}>
           {themeToggle}
@@ -74,11 +74,11 @@ export default function Navigation({ themeToggle }: NavigationProps) {
             Team Builder
           </Link>
           <Link 
-            href="/type-analyzer" 
-            className={`${styles.link} ${pathname === "/type-analyzer" ? styles.active : ""}`}
+            href="/counter-analyzer" 
+            className={`${styles.link} ${pathname === "/counter-analyzer" ? styles.active : ""}`}
             onClick={() => setIsOpen(false)}
           >
-            Type Analyzer
+            Counter Analyzer
           </Link>
         </div>
         
