@@ -51,9 +51,9 @@ An example `docker-compose.yml` file is provided in this repository. You can sim
 
 ```yaml
 services:
-  poke-planner:
-    image: ghcr.io/kardam00n/poke-planner:latest
-    container_name: poke-planner
+  pokeplanner:
+    image: ghcr.io/kardam00n/pokeplanner:latest
+    container_name: pokeplanner
     ports:
       - "3000:3000"
     restart: unless-stopped
